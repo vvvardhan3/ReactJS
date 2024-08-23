@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 // singleElement
 const header = React.createElement("h1", {}, "Hello World from React!!");
