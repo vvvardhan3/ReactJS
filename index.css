@@ -1,5 +1,7 @@
-
 #text {
-    color: red;
-    
+    color: rgba(34, 31, 31, 0.923);
+}
+
+.jsxheading {
+    color: blue;
 }
