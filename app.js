@@ -14,7 +14,7 @@ const Title = () => <h1 className="title" >Title:</h1>;
 // Component Composition => Component inside a Component!
 const HeadingComponent = () => (
     <div className="container" >
-        <Title />
+         <Title />  {/*  or  {Title()} or <Title></Title> */}
         <h1 className="heading">React Functional Component</h1>;
         {element}
     </div>
