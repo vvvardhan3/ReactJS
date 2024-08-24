@@ -1,12 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// React ELement using JSX:
+// React Functional Component:
+const Title = () => <h1 className="title" >Title:</h1>;
 
-
-const jsxHeading = <h1 class="jsxheading" > Hello, Welcome from JSX!</h1>;
+// React Functional Component:
+// Component Composition
+const HeadingComponent = () => (
+    <div className="container" >
+        <Title />
+        <h1 className="heading">React Functional Component</h1>;   
+    </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("text"));
 
-root.render(jsxHeading);
- 
+// root.render(jsxHeading);
+
+root.render(<HeadingComponent />);

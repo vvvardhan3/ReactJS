@@ -5,3 +5,15 @@
 .jsxheading {
     color: blue;
 }
+
+.heading {
+    color: rgb(181, 14, 14);
+    align-items: center;
+    padding-left: .5rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    
+}
