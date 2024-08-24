@@ -4,6 +4,8 @@
   "description": "This is a reactjs working environment for me!",
  
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "keywords": [
