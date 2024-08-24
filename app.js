@@ -1,27 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React Element:
-// Element inside a Element!
-const welcome = <span>Welcome</span>;
 
-const element = <h2 className="blog">{welcome} to my blogs!</h2>
-
-// React Functional Component:
-const Title = () => <h1 className="title" >Title:</h1>;
-
-// React Functional Component:
-// Component Composition => Component inside a Component!
-const HeadingComponent = () => (
-    <div className="container" >
-         <Title />  {/*  or  {Title()} or <Title></Title> */}
-        <h1 className="heading">React Functional Component</h1>;
-        {element}
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo">
+        <img className="logo-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjXm-Lz1wqab2UY4q-vR2b1nEBH3NHEPpIsA&s"/>
+      </div>
+      <div className="nav-items">
+        <ul className="list">
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
-);
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header></Header>
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("text"));
-
-// root.render(jsxHeading);
-
-root.render(<HeadingComponent />);
+root.render(<AppLayout></AppLayout>);

@@ -1,19 +1,22 @@
-#text {
-    color: rgba(34, 31, 31, 0.923);
-}
-
-.jsxheading {
-    color: blue;
-}
-
-.heading {
-    color: rgb(181, 14, 14);
-    align-items: center;
-    padding-left: .5rem;
-}
-
-.container {
+.header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    box-shadow: 1px 1px 2.5px rgb(113, 110, 110);
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.nav-items ul {
+    display: flex ;
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.nav-items ul li {
+    padding: 1.5rem;
     
 }
+ 
