@@ -22,15 +22,19 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  console.log(props);
   return (
     <div className="res-card">
-      <img className="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/37dc9e37-386f-453b-a219-ffa2c154750b_347868.JPG" />
-      <h3 className="res-name">KFC</h3>
-      <h4 className="res-cuisine"> American, Chicken</h4>
-      <h4 className="res-rating"> 4.4 stars</h4>
-      <h4 className="res-eta"> 30mins ETA</h4>
-      <h4 className="res-cost"> 500 for two</h4>
+      <img
+        className="res-logo"
+        src={props.resLogo}
+      />
+      <h3 className="res-name">{props.resName}</h3>
+      <h4 className="res-cuisine"> {props.resCuisine}</h4>
+      <h4 className="res-rating"> {props.resRating}</h4>
+      <h4 className="res-eta"> {props.resEta}</h4>
+      <h4 className="res-cost"> {props.resCost}</h4>
     </div>
   );
 };
@@ -40,7 +44,22 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard />
+        <RestaurantCard
+          resName="KFC"
+          resCuisine="Burgers, Rolls & Wraps"
+          resLogo="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/37dc9e37-386f-453b-a219-ffa2c154750b_347868.JPG"
+          resRating= "4.2"
+          resEta= "30-35mins"
+          resCost= "700 for two"
+        />
+        <RestaurantCard 
+        resName="Pizza Hut"
+        resCuisine="Pizzas"
+        resLogo="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/16/e981bc3d-6ba5-4150-8354-281f41fce767_10584.jpg"
+        resRating= "4.4"
+        resEta= "35-40mins"
+        resCost= "500 for two"
+         />
       </div>
     </div>
   );
