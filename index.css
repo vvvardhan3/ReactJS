@@ -17,6 +17,54 @@
 
 .nav-items ul li {
     padding: 1.5rem;
-    
+}
+
+.res-card {
+    width: 12.375rem;
+    height: 16.5rem;
+    border: 1px solid #b2a8a8;
+    box-shadow: 1px 1px 2.5px rgb(113, 110, 110);
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.res-card:hover {
+    cursor: pointer;
+    background-color: white;
+    transform: scale(0.99);
+    transform-origin: 50% 50%;
+}
+
+.search {
+    padding: 0.7rem;
+}
+
+.res-logo {
+    width: 100%;
+    height: 45%;
+    object-fit: cover;
+}
+
+.res-name,
+.res-cuisine,
+.res-rating,
+.res-eta,
+.res-cost {
+    padding-left: 0.4rem;
+    margin: 0.2rem;
+}
+
+.res-cuisine,
+.res-rating,
+.res-eta,
+.res-cost {
+   color: rgb(48, 45, 45);
+   font-weight: 600;
+   margin: 0.5rem;
+}
+
+.res-name {
+    font-family: "Gilroy_Bold", sans-serif;
+    font-weight: 650;
 }
  
