@@ -28,10 +28,10 @@
 
 .res-card {
     width: 12.375rem;
-    height: 16.5rem;
+    height: 20.5rem;
     border: 1px solid #b2a8a8;
     box-shadow: 1px 1px 2.5px rgb(113, 110, 110);
-    background-color: #f0f0f0;
+    background-color: white;
     border-radius: 5px;
     margin: 0.5rem;
     
@@ -39,7 +39,7 @@
 
 .res-card:hover {
     cursor: pointer;
-    background-color: white;
+    background-color: #f0f0f0;
     transform: scale(0.99);
     transform-origin: 50% 50%;
 }
