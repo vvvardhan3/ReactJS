@@ -71,9 +71,9 @@
 .res-rating,
 .res-eta,
 .res-cost {
-   color: rgb(48, 45, 45);
+   color: rgb(61, 57, 57);
    font-weight: 600;
-   margin: 0.5rem;
+   margin: 0.3rem;
 }
 
 .res-name {
