@@ -9,6 +9,11 @@
     box-shadow: 0px 0px 0px rgb(113, 110, 110);
 }
 
+.filter-btn {
+    margin: 1rem;
+    cursor: pointer;
+}
+
 .logo-img {
     width: 100px;
 }
