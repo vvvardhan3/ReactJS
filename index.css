@@ -9,8 +9,14 @@
     box-shadow: 0px 0px 0px rgb(113, 110, 110);
 }
 
-.filter-btn {
+.filter-btn,
+.search {
+    padding: 0.2rem;
     margin: 1rem;
+    cursor: pointer;
+}
+
+.search-btn{
     cursor: pointer;
 }
 
@@ -30,6 +36,10 @@
 
 .login-btn {
     cursor: pointer;
+}
+
+.filter {
+    display: flex;
 }
 
 .res-container,
@@ -62,10 +72,6 @@
     background-color: #f0f0f0;
     transform: scale(0.99);
     transform-origin: 50% 50%;
-}
-
-.search {
-    padding: 0.7rem;
 }
 
 .res-logo {
