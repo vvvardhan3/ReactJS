@@ -49,7 +49,8 @@
 .shimmer-card {
     width: 12.375rem;
     height: 20.5rem;
-    background-color: grey;
+    background-color: #f0f0f0;
+    margin: 3rem;
 }
 
 .res-card:hover {
