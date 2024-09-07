@@ -28,6 +28,10 @@
     padding: 1.5rem;
 }
 
+.login-btn {
+    cursor: pointer;
+}
+
 .res-container,
 .shimmer-container { 
     display: flex;
@@ -47,7 +51,7 @@
 }
 
 .shimmer-card {
-    width: 12.375rem;
+    width: 15rem;
     height: 20.5rem;
     background-color: #f0f0f0;
     margin: 3rem;
@@ -91,5 +95,9 @@
 .res-name {
     font-family: "Gilroy_Bold", sans-serif;
     font-weight: 650;
+}
+
+.login-btn {
+    padding:  0 0.5rem;
 }
  
