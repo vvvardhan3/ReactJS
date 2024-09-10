@@ -1,6 +1,7 @@
 import RestaurantCard from "./restaurantCard";
 import { useState, useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setlistOfRestaurants] = useState([]); // useState Variable
@@ -27,6 +28,14 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return (
+      <h1>Looks like you're Offline, Please check your connection!</h1>
+    )
+  }
 
   if (listOfRestaurants.length === 0) {
     return <ShimmerUi></ShimmerUi>;
@@ -62,7 +71,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-              (resData) => resData.info.avgRating > 4.5
+              (resData) => resData.info.avgRating > 4.2
             );
             setlistOfRestaurants(filteredList);
           }}
