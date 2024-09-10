@@ -8,6 +8,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
 
+  console.log(listOfRestaurants)
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -81,7 +83,7 @@ const Body = () => {
         </button>
         </div>
       </div> 
-      <div className="flex flex-wrap m-auto items-center ">
+      <div className="flex flex-wrap items-center w-10/12 m-auto ">
         {filteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}

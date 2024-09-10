@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
 //   const { deliveryTime } = resInfo?.cards[2]?.card?.card?.info?.sla;
 
   return (
-    <div className="res-menu-container">
+    <div className="res-menu-container w-8/12 m-auto ">
       <div>
         <h1 className="resMenuName">{resInfo?.cards[2]?.card?.card?.info.name}</h1>
       </div>
