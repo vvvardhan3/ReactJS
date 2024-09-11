@@ -1,23 +1,22 @@
 import { useState, useEffect } from "react";
-import ShimmerUi from "./ShimmerUi";
+import RestaurantMenuShimmerUi from "./RestaurantMenuShimmerUi";
 import { useParams } from "react-router-dom";
-import { RES_URL } from "../utils/constant";
+import { MENU_API } from "../utils/constant";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
 
   const { resId } = useParams();
 
-  useEffect(
-    () => {
-      fetchMenu();
-    },
-    [] // I want to render this restaurant menu only once!
-  );
+  // console.log(params)
+
+  useEffect(() => {
+    fetchMenu();
+  }, []);
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=121603"
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=121603&catalog_qa=undefined&submitAction=ENTER"
     );
     const json = await data.json();
 
@@ -26,34 +25,56 @@ const RestaurantMenu = () => {
   };
 
   if (resInfo === null) {
-    return <ShimmerUi />;
+    return <RestaurantMenuShimmerUi />;
   }
 
-  //   const { name, areaName, costForTwoMessage, cuisines, avgRating } =
-  //     resInfo?.cards[2]?.card?.card?.info;
+  const {
+    name,
+    locality,
+    costForTwoMessage,
+    cuisines,
+    avgRatingString,
+    totalRatingsString,
+  } = resInfo?.cards[2]?.card?.card?.info;
 
-  //   const { deliveryTime } = resInfo?.cards[2]?.card?.card?.info?.sla;
+  const { minDeliveryTime, maxDeliveryTime } =
+    resInfo?.cards[2]?.card?.card?.info?.sla;
+
+  const { itemCards } =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   return (
-    <div className="p-8 w-10/12 m-auto ">
-      <div className="p-6  w-[566] h-auto m-auto  shadow-2xl">
-        <div className="font-bold text-2xl">
-          <h1 className="">{resInfo?.cards[2]?.card?.card?.info.name}</h1>
-        </div>
-        <div className="flex justify-between">
-          <div>
-            <h3>• {resInfo?.cards[2]?.card?.card?.info.locality}</h3>
-            <h3>• {resInfo?.cards[2]?.card?.card?.info.costForTwoMessage}</h3>
-            <h3>• {resInfo?.cards[2]?.card?.card?.info.cuisines.join(", ")}</h3>
+    <div>
+      <div className="p-8 w-10/12 m-auto ">
+        <div className="p-6  w-[566] h-auto m-auto  shadow-2xl">
+          <div className="font-bold text-2xl">
+            <h1 className="">{name}</h1>
           </div>
-          <div className="">
-            <h3>
-              • {resInfo?.cards[2]?.card?.card?.info?.sla.minDeliveryTime} - {resInfo?.cards[2]?.card?.card?.info?.sla.maxDeliveryTime} mins
-            </h3>
-            <h3>• {resInfo?.cards[2]?.card?.card?.info.avgRatingString} ({(resInfo?.cards[2]?.card?.card?.info.totalRatingsString)})  </h3>
-            
+          <div className="flex justify-between">
+            <div>
+              <h3>• {locality}</h3>
+              <h3>• {costForTwoMessage}</h3>
+              <h3>• {cuisines.join(", ")}</h3>
+            </div>
+            <div className="">
+              <h3>
+                • {minDeliveryTime} - {maxDeliveryTime} mins
+              </h3>
+              <h3>
+                • {avgRatingString} ({totalRatingsString}){" "}
+              </h3>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="p-8 w-10/12 m-auto">
+        <ul className="p-6  w-[566] h-auto m-auto  shadow-2xl">
+          {itemCards.map((item) => (
+            <li key={item.card.info.id}>
+              • {item.card.info.name} - ₹{item.card.info.price / 100}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
