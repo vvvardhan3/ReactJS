@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
   );
 
   const fetchMenu = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.2472528&lng=80.1514447&restaurantId=686427");
+    const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=393840");
     const json = await data.json();
 
     console.log(json);
@@ -33,11 +33,11 @@ const RestaurantMenu = () => {
 //   const { deliveryTime } = resInfo?.cards[2]?.card?.card?.info?.sla;
 
   return (
-    <div className="res-menu-container w-8/12 m-auto ">
-      <div>
+    <div className="w-60  m-auto p-8">
+      <div className="font-bold text-lg">
         <h1 className="resMenuName">{resInfo?.cards[2]?.card?.card?.info.name}</h1>
       </div>
-      <div className="res-menu-card">
+      <div className="p-6 items-center w-60  shadow-xl">
         <h3>{resInfo?.cards[2]?.card?.card?.info.areaName}</h3>
         <h3>{resInfo?.cards[2]?.card?.card?.info.cuisines.join(", ")}</h3>
         <h3>{resInfo?.cards[2]?.card?.card?.info.costForTwoMessage}</h3>
