@@ -7,13 +7,18 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header></Header>
-      <Outlet/>
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -24,12 +29,13 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/aboutus",
         element: <AboutUs />,
-      },{
+      },
+      {
         path: "/contactus",
         element: <ContactUs />,
       },
@@ -37,11 +43,14 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
-    errorElement: <Error />
+    errorElement: <Error />,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("text"));
-root.render(<RouterProvider router = {appRouter} />);
+root.render(<RouterProvider router={appRouter} />);
