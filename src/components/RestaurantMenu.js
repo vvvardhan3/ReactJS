@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RestaurantMenuShimmerUi from "./RestaurantMenuShimmerUi";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constant";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -9,32 +10,46 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   useEffect(() => {
-      fetchMenu();
-    },[]);
+    fetchMenu();
+  }, []);
 
   const fetchMenu = async () => {
     const data = await fetch(MENU_API + resId);
     const json = await data.json();
 
-    //console.log(json);
+    console.log(json);
     setResInfo(json.data);
   };
 
   if (resInfo === null) {
     return <RestaurantMenuShimmerUi />;
-  };
+  }
 
- 
-  const { name, locality, costForTwoMessage, cuisines, avgRatingString, totalRatingsString,} 
-  = resInfo?.cards[2]?.card?.card?.info;
+  const {
+    name,
+    locality,
+    costForTwoMessage,
+    cuisines,
+    avgRatingString,
+    totalRatingsString,
+  } = resInfo?.cards[2]?.card?.card?.info;
 
   const { minDeliveryTime, maxDeliveryTime } =
     resInfo?.cards[2]?.card?.card?.info?.sla;
 
   const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card;
 
-    // console.log(itemCards);
+  // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+  console.log(categories);
 
   return (
     <div>
@@ -61,11 +76,9 @@ const RestaurantMenu = () => {
         </div>
       </div>
       <div className="p-8 w-10/12 m-auto">
-        <ul className="p-6  w-[566] h-auto m-auto  shadow-2xl">
-          {itemCards.map((item) => (
-            <li key={item?.card?.info.id}>
-              • {item?.card?.info.name} - ₹{item?.card?.info.price / 100}
-            </li>
+        <ul>
+          {categories.map((category) => (
+            <RestaurantCategory data = {category?.card?.card}/>
           ))}
         </ul>
       </div>
