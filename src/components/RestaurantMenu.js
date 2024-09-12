@@ -17,7 +17,7 @@ const RestaurantMenu = () => {
     const data = await fetch(MENU_API + resId);
     const json = await data.json();
 
-    console.log(json);
+    // console.log(json);
     setResInfo(json.data);
   };
 
@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div>
@@ -78,7 +78,7 @@ const RestaurantMenu = () => {
       <div className="p-8 w-10/12 m-auto">
         <ul>
           {categories.map((category) => (
-            <RestaurantCategory data = {category?.card?.card}/>
+            <RestaurantCategory key={category?.card?.card.title} data = {category?.card?.card}/>
           ))}
         </ul>
       </div>
