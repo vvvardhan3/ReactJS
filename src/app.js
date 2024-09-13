@@ -10,12 +10,14 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import Carousel from "./components/Carousel";
 
 const AppLayout = () => {
   return (
     <Provider store={appStore}>
       <div className="app">
         <Header />
+        <Carousel/>
         <Outlet />
       </div>
     </Provider>
