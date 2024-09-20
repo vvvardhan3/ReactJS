@@ -1,7 +1,7 @@
 const Carousel = () => {
   return (
     <div>
-      <div className="w-8/12 m-auto flex justify-between py-4">
+      <div className="w-8/12 h-[250px] m-auto flex justify-between py-4">
         <h1 className="font-bold text-3xl">What's on your mind?</h1>
         <div className="flex ">
           <div className="p-1">

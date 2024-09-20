@@ -13,10 +13,12 @@ const Header = () => {
     <div className=" border-b-2  ">
       <div className="text-gray-500 flex justify-between py-2  w-8/12 m-auto r ">
         <div>
+          <Link to="/"> 
           <img
             className="p-1 transition duration-200 cursor-pointer  hover:scale-110 xs:w-8"
-            src={logo}
+            src= {logo}
           />
+          </Link>
         </div>
         <div className="flex items-center ">
           <ul className="flex">

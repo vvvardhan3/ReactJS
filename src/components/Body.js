@@ -43,9 +43,10 @@ const Body = () => {
   }
 
   return (
-    <div className=" w-10/12 m-auto">
+    <div className=" w-10/12 m-auto bg-gray-300">
       <div className="flex">
         <div className="m-4 p-4">
+          {/* Search Button */}
           <input
             type="text"
             className="border border-solid border-black"
@@ -70,6 +71,7 @@ const Body = () => {
             Search
           </button>
         </div>
+        {/* Top Rated Restaurants Button */}
         <div className="m-4 p-4 flex items-center">
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg"
